@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR Code Generator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(90deg, rgb(237, 209, 209) 13%, rgba(222, 133, 133, 1) 53%, rgba(43, 32, 32, 0.97) 100%);
+      font-family: Arial, sans-serif;
+    }
+
+    /* Header container */
+    #container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      height: 70px;
+      background-color: rgba(255, 255, 255, 0.851);
+      border-radius: 10px;
+      flex-wrap: wrap;
+      position: relative;
+    
+    }
+
+    #container img {
+      height: 70px;
+      width: 80px;
+    }
+
+    span {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+    }
+
+    li a {
+      text-decoration: none;
+      font-size: 1.2em;
+      color: black;
+    }
+
+    li a:hover {
+      color: rgb(95, 210, 160);
+    }
+
+    #qr1 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Main sections */
+    #home, #about, #contact, #courses {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    #home {
+      font-size: 3em;
+      position: relative;
+      top: 50px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    #home img {
+      width: 370px;
+      height: 300px;
+     position: relative;
+    top: 70px;
+      border-radius: 10px;
+    }
+
+    /* #about h1 {
+      font-size: 1.5em;
+      color: black;
+      margin: 20px 0; */
+    /* } */
+
+    #contact {
+      color: white;
+      font-size: 1.2em;
+    }
+
+    #contact h3 {
+      padding: 15px;
+      color: black;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    #contact a {
+      color: rgba(0, 0, 0, 0.726);
+    }
+
+    .container {
+      background-color: white;
+      width: 400px;
+      padding: 40px;
+      border-radius: 10px;
+      margin: auto;
+      position: relative;
+      top: 20px;
+    }
+
+    .container p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    #inputbox {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    #button {
+      padding: 15px 25px;
+      background-color: rgba(103, 24, 221, 0.814);
+      color: white;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      top: 10px;
+     ;
+;
+    }
+
+    #button:hover {
+      background-color: rgb(176, 97, 251);
+
+    }
+
+    #imgbox {
+      margin-top: 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 5s ;   
+      position: relative;
+      bottom: 10px;
+      
+    }
+
+    #imgbox.show-img {
+      max-height: 200px;
+    }
+
+    #imgbox img {
+      width: 190px;
+      height: 190px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      #container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+      }
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 10px 0;
+      }
+
+      .container {
+        width: 90%;
+        margin-top: 40px;
+      }
+
+      #home {
+        font-size: 2em;
+      }
+
+      #home img {
+        width: 200px;
+        height: 200px;
+      }
+     
+      }
+
+      #about h1 {
+        font-size: 2.2em;
+        font-family: 'Times New Roman', Times, serif;
+        padding: 30px;
+      }
+    
+
+    @media (max-width: 480px) {
+      li a {
+        font-size: 1em;
+      }
+
+      #home {
+        font-size: 1.5em;
+      }
+
+      .container p {
+        font-size: 1em;
+      }
+
+      #button {
+        font-size: 1em;
+        padding: 12px; 
+       
+       }
+
+      #inputbox {
+        font-size: 1em;
+      } 
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <div id="qr1">
+        <img src="istockphoto-1358621997-612x612.jpg" alt="Logo" />
+      <span>Thiru's QRgenerator</span>
+    </div>
+
+    <ul>
+      <li><a href="#" onclick="par('home')">Home</a></li>
+      <li><a href="#" onclick="par('about')">Steps</a></li>
+      <li><a href="#" onclick="par('courses')">QR Generator</a></li>
+      <li><a href="#" onclick="par('contact')">Contact</a></li>
+    </ul>
+  </div>
+
+  <div id="home">
+    <p>Welcome to QR Code generator website</p>
+    <img src="custom-qr-codes-with-logo-5-1024x614.jpg" alt="QR">        
+  </div>
+
+  <div id="about">
+    <h1>Steps to create a QRCode</h1>
+    <h1>Step 1: Please type your text or URL</h1>
+    <h1>Step 2: Click the "Generate QR Code" button</h1>
+    <h1>Step 3: Your QR code is ready</h1>
+  </div>
+
+
+  
+  <div id="courses">
+    <h2>Create Your QR code</h2>
+    <div class="container">
+      <p>Enter your text or URL</p>
+      <input type="text" id="inputbox" placeholder="Type here">
+      <div id="imgbox">
+        <img src="" alt="" id="qrimage">
+      </div>
+      <button onclick="QRgenerator()" id="button">Generate QR Code</button>
+    </div>
+  </div>
+
+  <div id="contact">
+    <h3>Name: Thiruppathi S.K</h3>
+    <h3>Contact Us: +91 6382183144</h3>
+    <h3><a href="mailto:thirup112@gmail.com">Email: thirup112@gmail.com</a></h3>
+  </div>
+
+  <script>
+    function par(id) {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("about").style.display = "none";
+      document.getElementById("contact").style.display = "none";
+      document.getElementById("courses").style.display = "none";
+      document.getElementById(id).style.display = "block";
+    }
+
+    window.onload = function () {
+      par("home");
+    }
+
+    function QRgenerator() {
+      const imgbox = document.getElementById("imgbox");
+      const img = document.getElementById("qrimage");
+      const input = document.getElementById("inputbox");
+
+      if (input.value.length > 0) {
+        img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(input.value);
+        imgbox.classList.add("show-img");
+      } else {
+        alert("Enter your URL or text");
+      }
+    }
+  </script>
+
+</body>
+</html>/
